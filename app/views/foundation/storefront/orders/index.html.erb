@@ -1,0 +1,34 @@
+<% title "Your orders" %>
+<section class="md-section" aria-labelledby="orders-title">
+  <div class="md-section__inner md-stack">
+    <div class="storefront-heading-row">
+      <div>
+        <p class="md-section__eyebrow">Driftline Coffee</p>
+        <h1 id="orders-title">Your orders</h1>
+        <p>Every order placed on this account, newest first.</p>
+      </div>
+      <%= link_to "Back to shop", storefront_products_path, class: "md-button md-button--tonal" %>
+    </div>
+
+    <% if @orders.any? %>
+      <div class="md-list">
+        <% @orders.each do |order| %>
+          <%= link_to storefront_order_path(order.public_reference, access_token: ReceiptAccess.return_token_for(order)), class: "md-list-item md-list-item--link" do %>
+            <div>
+              <strong>Order <%= order.public_reference %></strong>
+              <br>
+              <span><%= l(order.created_at, format: :long) %> · <%= pluralize(order.line_items.sum(&:quantity), "item") %> · <%= order.state.humanize %></span>
+            </div>
+            <strong><%= storefront_money(order.total_cents, order.currency) %></strong>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="md-card md-card--filled">
+        <h2>No orders yet</h2>
+        <p>When you place an order it will show up here.</p>
+        <%= link_to "Shop coffees", storefront_products_path, class: "md-button md-button--filled" %>
+      </div>
+    <% end %>
+  </div>
+</section>
