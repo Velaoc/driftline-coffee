@@ -111,7 +111,7 @@ Rails.application.routes.draw do
       end
       resource :checkout, only: %i[show create]
       post "checkout/retry", to: "checkouts#retry", as: :checkout_retry
-      resources :orders, only: :show
+      resources :orders, only: %i[index show]
       get "simulate/:id", to: "simulator#show", as: :simulate,
         constraints: ->(_request) { Foundation.storefront_simulator? }
       post "simulate/:id", to: "simulator#create",
