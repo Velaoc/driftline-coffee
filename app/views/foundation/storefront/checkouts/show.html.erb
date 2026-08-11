@@ -5,7 +5,7 @@
     <%= button_to "Retry secure checkout", storefront_checkout_retry_path, class: "md-button md-button--filled" %>
     <%= link_to "View order status", storefront_order_path(@pending_order.public_reference, access_token: @pending_token), class: "md-button md-button--outlined" %>
   <% else %>
-  <div><p class="md-section__eyebrow">Secure checkout</p><h1>Contact and consent</h1><p>This storefront is for digital goods; no shipping address is collected. Payment details are collected by Stripe. This application never receives or stores your card number or security code.</p></div>
+  <div><p class="md-section__eyebrow">Driftline Coffee</p><h1>Contact and consent</h1><p>This demo storefront simulates checkout; no shipping address or real payment is collected. In production, payment details are collected by Stripe — this application never receives or stores your card number or security code.</p></div>
   <% if flash[:alert].present? %><div class="md-card md-card--filled" role="alert"><%= flash[:alert] %></div><% end %>
   <%= form_with scope: :checkout, url: storefront_checkout_path, class: "md-stack" do |form| %>
     <% if user_signed_in? %>
