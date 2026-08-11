@@ -1,10 +1,12 @@
 <!-- foundation:identity -->
-# Application
+# Driftline Coffee
 
-A production-ready Rails application.
+Small-batch coffee, roasted weekly and shipped fresh. An online storefront for
+a neighborhood roaster: catalog with photos and prices, cart, guest checkout,
+and per-customer order history.
 
-- Site: https://example.com
-- Support: support@example.com
+- Site: https://driftline.example
+- Support: hello@driftline.example
 <!-- /foundation:identity -->
 
 The block above is the product identity. `bin/rename` rewrites it, together
