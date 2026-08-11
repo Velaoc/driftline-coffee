@@ -1,0 +1,79 @@
+{
+  "name": "Driftline Coffee",
+  "purpose": "Online storefront for a small coffee roaster: catalog of coffees with photos and prices, cart, checkout, and per-customer order history.",
+  "actors": [
+    "Guest customer (browses, buys without an account)",
+    "Registered customer (also sees past orders)",
+    "Store admin (manages products and orders)"
+  ],
+  "entities": [
+    {
+      "name": "Product",
+      "relationships": [
+        "has many order items and cart items",
+        "belongs to a roast profile (light/medium/dark)"
+      ]
+    },
+    {
+      "name": "CartItem",
+      "relationships": [
+        "belongs to a cart session and a product",
+        "quantity + unit price snapshot"
+      ]
+    },
+    {
+      "name": "Order",
+      "relationships": [
+        "has many order items",
+        "belongs to a customer (optional for guests)",
+        "status: pending/paid/fulfilled"
+      ]
+    },
+    {
+      "name": "OrderItem",
+      "relationships": [
+        "belongs to an order and a product",
+        "price snapshot at purchase time"
+      ]
+    },
+    {
+      "name": "Customer",
+      "relationships": [
+        "has many orders",
+        "identified by email"
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Browse catalog",
+      "description": "Guests see the product grid with photos, roast profiles, and prices"
+    },
+    {
+      "name": "Add to cart",
+      "description": "Add coffees with quantity; cart persists per session"
+    },
+    {
+      "name": "Checkout",
+      "description": "Guest-first: collect email, run server-authoritative pricing through the local payment simulator (Stripe-ready), show receipt via signed expiring link"
+    },
+    {
+      "name": "View past orders",
+      "description": "Registered customers sign in and see their order history with statuses"
+    },
+    {
+      "name": "Admin manage store",
+      "description": "Admin CRUDs products and views incoming orders"
+    }
+  ],
+  "modules": [
+    "storefront"
+  ],
+  "integrations": [
+    {
+      "name": "stripe",
+      "demo_adapter": true
+    }
+  ],
+  "seed_demo": "Six to eight coffees (single origin + blends) with photos, roast profile, tasting notes, and prices; one sample registered customer with a couple of past orders at various statuses so order history is visible immediately."
+}
