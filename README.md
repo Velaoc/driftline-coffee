@@ -13,6 +13,29 @@ The block above is the product identity. `bin/rename` rewrites it, together
 with `config/foundation.yml`; everything else in this file documents the
 foundation the application is built on.
 
+## Driftline Coffee
+
+This app is a storefront for a small coffee roaster built on the Vela Rails
+production foundation:
+
+- **Catalog** — coffees with photos, roast profiles, tasting notes, and prices
+  (`lib/foundation/demo_seeds.rb` seeds the demo catalog, limited to previews).
+- **Cart** — session cart with quantity controls, persisted per visitor.
+- **Checkout** — guest-first (no account required to buy), server-authoritative
+  pricing, local payment simulator in the preview, Stripe-ready in production.
+- **Order history** — signed-in customers see their past orders at
+  `/storefront/orders` (demo customer `maya@example.com` / `driftline-demo-1`
+  ships with two sample orders).
+- **Admin** — product and order management under `/admin` for the operator
+  account (promoted from the console, never seeded).
+
+**Demo vs production.** The hosted preview runs the payment simulator and
+wipes daily; the public repo is the keeper. The foundation currently models
+digital fulfillment only — a real production launch for physical coffee
+shipments must add address collection, shipping/tax calculation, and updated
+legal terms (see `docs/STOREFRONT.md` and the TODO-OPERATOR markers in the
+legal pages) before flipping `storefront_commerce_legal_reviewed`.
+
 ## What this is
 
 A Rails 8.1 starter template, MIT licensed, with no proprietary dependencies.
