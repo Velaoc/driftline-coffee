@@ -4,7 +4,7 @@
     <div class="storefront-product-detail__image"><%= storefront_product_image(@product, alt: @product.description.presence || @product.name) %></div>
     <div class="md-stack">
       <%= link_to "Back to shop", storefront_products_path %>
-      <div><p class="md-section__eyebrow">Available</p><h1><%= @product.name %></h1></div>
+      <div><p class="md-section__eyebrow">Roasted weekly</p><h1><%= @product.name %></h1></div>
       <p><%= simple_format(@product.description, {}, wrapper_tag: "span") %></p>
       <strong class="storefront-price"><%= storefront_money(@product.price_cents, @product.currency) %></strong>
       <%= form_with url: items_storefront_cart_path(@product), class: "md-stack" do |form| %>
