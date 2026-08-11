@@ -1,6 +1,6 @@
 <% title "Cart" %>
 <section class="md-section"><div class="md-section__inner md-stack">
-  <div class="storefront-heading-row"><div><p class="md-section__eyebrow">Storefront</p><h1>Your cart</h1></div><%= link_to "Continue shopping", storefront_products_path, class: "md-button md-button--text" %></div>
+  <div class="storefront-heading-row"><div><p class="md-section__eyebrow">Driftline Coffee</p><h1>Your cart</h1></div><%= link_to "Continue shopping", storefront_products_path, class: "md-button md-button--text" %></div>
   <% items = @cart.filter_map { |id, quantity| [@products[id], quantity] if @products[id] } %>
   <% if items.any? %>
     <div class="md-list">
