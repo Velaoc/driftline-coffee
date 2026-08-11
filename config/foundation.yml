@@ -2,12 +2,11 @@
 #
 # Loaded in config/application.rb and exposed everywhere as
 # Rails.configuration.x.foundation (keys work as strings or symbols).
-# These are template placeholders. Run bin/rename to stamp a real
-# identity across this file, the README, and the web manifest before
-# shipping an app; editing them here by hand works too.
+# Product identity for the generated application.
+
 shared:
   # Display name used in page titles, meta tags, and mail.
-  application_name: "Application"
+  application_name: "Driftline Coffee"
 
   # Absolute URL or asset path for the product logo. Blank renders a
   # plain wordmark instead.
@@ -18,8 +17,8 @@ shared:
   brand_seed_color: "#6750A4"
 
   # Fallbacks for pages that do not set their own title/description.
-  default_page_title: "Welcome"
-  default_page_description: "A production-ready Rails application."
+  default_page_title: "Driftline Coffee"
+  default_page_description: "Small-batch coffee, roasted weekly and shipped fresh. Single origins, blends, and subscriptions from a neighborhood roaster."
 
   # Absolute URL of the default Open Graph / social sharing image.
   # Blank omits the og:image tag.
@@ -30,12 +29,12 @@ shared:
   social_links: {}
 
   # Operator mailboxes surfaced in support links and legal pages.
-  support_email: "support@example.com"
-  legal_email: "legal@example.com"
+  support_email: "hello@driftline.example"
+  legal_email: "legal@driftline.example"
 
   # Canonical production domain, no scheme. Used for sitemaps and
   # absolute URLs in mail.
-  domain: "example.com"
+  domain: "driftline.example"
 
   # Exact storefront feature flag (SPEC M8): only the YAML boolean true
   # enables its routes, navigation, models' entry points, and production
@@ -56,7 +55,8 @@ shared:
 
   # Exact lowercase HTTPS hosts permitted for browser-rendered external
   # product images. Empty (the safe default) requires Active Storage uploads.
-  storefront_external_image_hosts: []
+  storefront_external_image_hosts:
+    - "images.unsplash.com"
 
   # Host capacity ceilings for /healthcheck disk and memory probes (percent used).
   # Probes pass with an informational note when the platform cannot report figures.
