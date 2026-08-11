@@ -31,6 +31,7 @@
         if Foundation.module_available?("storefront") && Foundation.storefront_enabled? # foundation:module storefront
           nav_items[0] = { label: "Shop", icon: :home, href: root_path, active: request.path == root_path || request.path.start_with?("/storefront/products") }
           nav_items.insert(1, { label: "Cart", icon: :payments, href: storefront_cart_path, active: request.path == storefront_cart_path || request.path == storefront_checkout_path })
+          nav_items.insert(2, { label: "My orders", icon: :receipt_long, href: storefront_orders_path, active: request.path == storefront_orders_path })
         else # foundation:module storefront
           nav_items.insert(2, { label: "Billing", icon: :payments, href: billing_path, active: request.path.start_with?("/billing") || request.path == pricing_path })
         end # foundation:module storefront
